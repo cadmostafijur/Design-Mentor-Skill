@@ -15,6 +15,19 @@
 
 A two-person startup needs tokens + 10–15 core components documented in code. A multi-product org needs governance, versioning and contribution rules. Ask (or infer) team size and stack before producing a 40-page system nobody will maintain. Default: lean foundations + core components, extensible later.
 
+### Three jobs: create, audit, extend
+
+- **Create:** foundations → tokens (§2–3) → core components (§4–6).
+- **Audit** an existing system or codebase. Run `python scripts/token_audit.py <src>` for evidence, then look for:
+  - hardcoded colors, spacing and font sizes that bypass tokens
+  - near-duplicate values (e.g. #1e293b, #1f2937 and #222 all used as "dark text"), which should be merged
+  - naming drift (`btn-primary` vs `PrimaryButton` vs `button--main`; tokens named by appearance)
+  - duplicate or near-duplicate components (three modal implementations)
+  - missing states (§5) and accessibility gaps (focus, contrast, labels)
+  - undocumented components and usage rules
+  Report as findings with severity, then a consolidation plan (merge map: old value → token).
+- **Extend:** a new pattern must use existing tokens, compose from existing primitives where possible, follow existing naming, and document why it exists and what it trades off. If no existing token fits, propose the new token explicitly rather than hardcoding a value.
+
 ## 2. Token architecture
 
 Three layers. Components reference semantic tokens, never primitives directly — that's what makes theming (dark mode, brands) a token swap instead of a rewrite.
@@ -148,6 +161,11 @@ Colors, type styles, spacing, radius, shadows — by token name.
 
 ## Components
 Each instance: component + variant + size + props; any new component spec'd per §4.
+Props table for new components:
+| Prop | Type | Default | Values / notes |
+
+## Motion
+| Element | Trigger | Property | Duration | Easing | Reduced-motion fallback |
 
 ## States & behavior
 - Loading: skeleton for X; button spinner for Y

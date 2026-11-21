@@ -80,7 +80,21 @@ Condensed to show the expected depth and judgment, not the full length of a real
 
 ---
 
-## Example 5 — Mentorship (beginner)
+## Example 5 — Flow audit (condensed)
+
+**User:** "Here's our trial sign-up: landing → form (name, company, role, team size, phone, email, password) → verify email → tour → dashboard. Too many people drop off."
+
+> **Flow audit:** 5 screens and 7 inputs before the user sees any value.
+> - Name, company, role, team size, phone: none of these is needed to create an account. Ask for role later in one optional onboarding question, and drop phone entirely (it's a known drop-off point and sales can ask later).
+> - Email verification blocks access to the product. Let users in right away and remind them with a banner.
+> - The forced 6-step tour gets skipped anyway. Replace it with an empty dashboard that has one primary action and a sample-data option.
+>
+> **Result:** 2 screens and 2 inputs to reach the dashboard (was 5 screens, 7 inputs). Mermaid diagram and step table follow.
+> **Validate:** track completion at each step before and after the change; an A/B test is worthwhile if traffic is above about 1k sign-ups a month.
+
+---
+
+## Example 6 — Mentorship (beginner)
 
 **User:** "How much space should I put between things? My designs look messy."
 

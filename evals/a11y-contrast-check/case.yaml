@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: a11y-contrast-check
+expected_outcome: |
+  An accessibility review that computes actual contrast ratios (white on #4f9cf9 ≈2.8:1 fails AA; #94a3b8 on white ≈2.6:1 fails; #e2e8f0 border ≈1.2:1 fails 3:1 non-text), flags outline:none as a WCAG focus-visible failure, gives concrete fixed values, and notes manual testing still needed.

@@ -57,6 +57,39 @@ A structured list works too when boxes get unwieldy:
 2. Hero — H1 / subhead / primary CTA / product image (60% width on desktop, below text on mobile)
 ```
 
+## User flow
+
+````
+## Goal & assumptions
+User: … · Goal: … · Success = … · Assumptions: …
+
+## Flow
+```mermaid
+flowchart TD
+  A[Pricing page] -->|Start free| B[Sign-up form]
+  B --> C{Email already exists?}
+  C -->|Yes| D[Log in prompt]
+  D --> B
+  C -->|No| E[Choose role]
+  E --> F[Empty dashboard]
+  F -->|Create project| G[Project created ✓]
+```
+
+## Steps
+| # | Screen | User intent | Primary action | Error / edge cases |
+|---|---|---|---|---|
+| 1 | Sign-up form | Create account fast | Create account | Email exists → log in; weak password → inline rule |
+
+## Wireframes
+[one annotated ASCII wireframe per key screen + one line each for empty / loading / error / success]
+
+## Flow audit
+Steps to goal: N (was M) · Inputs removed: … · Dead ends: none
+
+## Open decisions
+- …
+````
+
 ## Audit / improvement
 
 ```
@@ -101,6 +134,58 @@ Color (primitive + semantic table with contrast) · Typography scale · Spacing 
 
 ## Usage rules
 [When to use what; governance light]
+```
+
+## Research synthesis
+
+```
+## Summary
+[Top 3 insights in one line each]
+
+**Source:** N interviews / N survey responses / dates · **Caveats:** sample bias, gaps
+
+## Themes
+| Theme (user need) | Evidence | Severity | Representative quote |
+|---|---|---|---|
+| Can't see who owes money at a glance | 6/8 | High | "I open three tools every Monday…" (P3) |
+
+## Insights → opportunities
+1. **Insight:** … **Why it matters:** … **How might we:** … **Hypothesis:** …
+
+## Contradictions & open questions
+## Recommended next step
+```
+
+## DESIGN.md (persist decisions in a codebase)
+
+```
+# Design — [Product]
+
+## Users & purpose
+One paragraph: who, core job, context of use.
+
+## Principles
+3–4, each one line and specific to the product.
+
+## Direction
+Adjectives: … · Layout idea: … · Signature device: … · Density: …
+
+## Tokens
+Source of truth: [path to tokens / tailwind config]. Key roles: …
+
+## Typography & spacing
+Families, scale, base unit.
+
+## Components
+Library: … · Conventions: naming, variants, where components live.
+
+## Do / Don't
+- Do … / Don't …
+
+## Accessibility
+Target: WCAG 2.2 AA. Project-specific rules.
+
+## Open decisions
 ```
 
 ## Mentorship answer

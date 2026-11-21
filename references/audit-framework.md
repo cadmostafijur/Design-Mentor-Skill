@@ -16,13 +16,14 @@ For screenshot analysis, "improve this", and full UX audits.
 
 - Confirm what you actually have: screenshot(s), live URL you can access, code, Figma data, or only a description. Audit only what's available; name what's out of scope ("I can't assess interaction states, load time or keyboard behavior from a static screenshot").
 - Establish the screen's job and the user's goal. A finding only matters relative to that goal.
+- Match feedback to the stage. For an early concept, focus on concept, flow and hierarchy and skip pixel polish. For pre-launch, focus on states, accessibility, consistency and edge cases. Ask about the stage only if you can't tell.
 - From screenshots, colors and sizes are estimates. Say "appears to be ~3:1, verify with a contrast checker" rather than stating an exact ratio.
 
 ## 2. Audit process
 
 Pass through the interface in this order — earlier layers have bigger impact:
 
-1. **Purpose & clarity** — within 5 seconds, is it clear what this is and what to do?
+1. **First impression & purpose** — what draws the eye in the first 2 seconds (is it the right thing)? Within 5 seconds, is it clear what this is and what to do?
 2. **Information architecture & flow** — is content organized by user need? Are the steps logical? Any dead ends?
 3. **Visual hierarchy** — does emphasis match importance? Is there one clear primary action?
 4. **Layout & spacing** — alignment, grid, consistent spacing, grouping by proximity.
@@ -91,6 +92,29 @@ For an "improve this" request, follow findings with the revised design: updated 
 **Robust**
 - [ ] Semantic HTML first; ARIA only to fill gaps; correct name/role/value for custom widgets (4.1.2)
 - [ ] Status messages announced via live regions (4.1.3)
+
+### Testing sequence
+
+Recommend this order, and say which steps you could actually do yourself and which the user still needs to do:
+
+1. **Automated scan** (axe DevTools, Lighthouse, WAVE). It catches only around 30–40% of issues, so passing it doesn't mean the page is accessible.
+2. **Keyboard only:** Tab and Shift+Tab through everything; Enter/Space activate; Esc closes; focus always visible and in logical order; no traps.
+3. **Screen reader:** VoiceOver (macOS/iOS), NVDA (Windows), TalkBack (Android). Check headings, landmarks, labels, and that dynamic updates are announced.
+4. **Contrast:** compute every text/background and UI pair (`python scripts/contrast.py "#fg" "#bg"`), including hover, disabled-looking and placeholder text.
+5. **Zoom & reflow:** 200% browser zoom and a 320px-wide viewport, with no loss of content or horizontal scrolling.
+6. **Reduced motion and forced colors** (Windows High Contrast).
+
+### Accessibility report format
+
+| # | WCAG criterion | Issue (location) | Severity | Fix |
+|---|---|---|---|---|
+
+Contrast table:
+
+| Pair (fg / bg) | Used for | Ratio | Required | Result |
+|---|---|---|---|---|
+
+Then **Priority fixes** (in order) and **Needs manual testing** (what couldn't be verified from the material given).
 
 ## 6. Common problems by product type
 
