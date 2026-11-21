@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: design-system-tokens
+expected_outcome: |
+  A lean, layered design system scoped to a small team: primitive and semantic tokens, contrast-checked color roles, a type scale, spacing scale, paste-ready Tailwind/CSS tokens, and Button and Input specs with full state coverage and accessibility notes.

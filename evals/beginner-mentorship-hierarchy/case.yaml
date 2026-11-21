@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: beginner-mentorship-hierarchy
+expected_outcome: |
+  A beginner-calibrated explanation of visual hierarchy in plain language, with the levers (size, weight, color, spacing, position), a concrete before/after example, and a small practice exercise.

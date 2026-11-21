@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: scratch-dashboard-design
+expected_outcome: |
+  A framed dashboard design: stated assumptions, a direction justified by the audience, a block-level layout prioritized by gym-owner tasks (not a generic KPI-card grid), component states including empty/loading, per-breakpoint responsive behavior, and specific accessibility requirements.
